@@ -49,7 +49,7 @@ sina-install
 > 或者直接用绝对路径：`& "C:\Users\m1316\AppData\Local\hermes\scripts\sina-install.cmd"`
 
 **前置要求**：
-1. `~/.hermes/.env` 里有 `DEEPSEEK_API_KEY=sk-xxxxxxxx`（LLM 总结用）
+1. `~/.hermes/.env` 里有 `DEEPSEEK_API_KEY`（LLM 总结用，参考 `.env.example` 模板）
 2. （可选）Feishu bot 已配对并设置 home channel（cron `--deliver feishu` 才能推送）
 3. `hermes gateway` 在跑（cron job 调度靠它）
 
