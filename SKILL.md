@@ -49,7 +49,7 @@ sina-install
 > 或者直接用绝对路径：`& "C:\Users\m1316\AppData\Local\hermes\scripts\sina-install.cmd"`
 
 **前置要求**：
-1. `~/.hermes/.env` 里有 `DEEPSEEK_API_KEY`（LLM 总结用，参考 `.env.example` 模板）
+1. 环境变量里有 `DEEPSEEK_API_KEY`（LLM 总结用，参考 `.env.example` 模板）
 2. （可选）Feishu bot 已配对并设置 home channel（cron `--deliver feishu` 才能推送）
 3. `hermes gateway` 在跑（cron job 调度靠它）
 
@@ -336,7 +336,7 @@ install.py 会做：
    - `sina-summarize-0600-am`（`0 6 * * *`，昨夜今晨·上半夜 22:00-02:00 4h 窗口 + 飞书投递）
    - `sina-summarize-0600-pm`（`1 6 * * *`，昨夜今晨·下半夜 02:00-06:00 4h 窗口 + 飞书投递）
    - `sina-cleanup-daily`（`0 3 * * *`，清理过期 JSONL + gzip 归档；`deliver=local` 不推送飞书）
-3. 检查 `~/.hermes/.env` 里有没有 `DEEPSEEK_API_KEY`，**没有就输出 `===SETUP_REQUIRED===` 块并返回退出码 2**（让 Agent 知道该把控制权交回给用户）
+3. 检查 `DEEPSEEK_API_KEY` 环境变量是否设置，**没有就输出 `===SETUP_REQUIRED===` 块并返回退出码 2**（让 Agent 知道该把控制权交回给用户）
 
 > **重要约束**：`hermes cron create --script` 只接受 `~/.hermes/scripts/` 下的纯文件名（不支持绝对路径），所以 wrapper 必须放在那里。install.py 替你做这步。
 
